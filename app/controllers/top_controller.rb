@@ -11,6 +11,7 @@ class TopController < ApplicationController
     uid = params[:uid]
     pass = params[:pass]
 
+    # DB検索
     user = User.find_by(uid: uid, pass: pass)
 
     if user
@@ -21,4 +22,8 @@ class TopController < ApplicationController
     end
   end
 
+  def logout
+    session.delete(:login_uid)
+    redirect_to root_path
+  end
 end
