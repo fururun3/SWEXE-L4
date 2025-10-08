@@ -11,7 +11,6 @@ class TopController < ApplicationController
     uid = params[:uid]
     pass = params[:pass]
 
-    # DB検索
     user = User.find_by(uid: uid, pass: pass)
 
     if user
