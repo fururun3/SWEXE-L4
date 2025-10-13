@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  require 'bcrypt'
+  require "bcrypt"
 
   def index
     @users = User.all
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
+
   def create
     # 入力された uid と pass を受け取る
     uid = params[:user][:uid]
@@ -25,4 +25,3 @@ class UsersController < ApplicationController
     end
   end
 end
-
