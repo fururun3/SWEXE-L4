@@ -1,4 +1,6 @@
 class TopController < ApplicationController
+  require 'bcrypt'
+
   def main
     if session[:login_uid]
       render "main"
@@ -11,9 +13,9 @@ class TopController < ApplicationController
     uid = params[:uid]
     pass = params[:pass]
 
-    user = User.find_by(uid: uid, pass: pass)
+    user = User.find_by(uid: uid)
 
-    if user
+    if user && BCrypt::Password.new(user.pass) == pass
       session[:login_uid] = uid
       redirect_to root_path
     else
