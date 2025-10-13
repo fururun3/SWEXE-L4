@@ -1,0 +1,8 @@
+<% @users.each do |e| %>
+  <p>
+    <strong>UID:</strong> <%= e.uid %> <br>
+    <strong>Pass:</strong> <%= e.pass %>
+  </p>
+<% end %>
+
+<%= link_to "トップ画面", top_main_path %>
